@@ -1,5 +1,6 @@
-package com.ftm.main.filemanager.fileOperations.dto;
+package com.ftm.main.filemanager.fileOperations.dto.fileResponse;
 
+import com.ftm.main.filemanager.fileOperations.dto.chunkResponse.ChunkRequest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

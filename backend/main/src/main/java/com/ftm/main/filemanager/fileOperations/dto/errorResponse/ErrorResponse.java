@@ -1,4 +1,4 @@
-package com.ftm.main.filemanager.fileOperations.dto;
+package com.ftm.main.filemanager.fileOperations.dto.errorResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,12 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class ChunkResponse {
-    private Integer index;
-    private String hash;
-    private String s3Url;
+public class ErrorResponse {
     private String status;
+    private String message;
 }
