@@ -10,7 +10,7 @@ public class User {
 
     private String name;
 
-    @Embedded //not a primary/Composite key but used for grouping a reusable group of fields
+    @Embedded //not a primary/Composite key but used for grouping a reusable group of fields.
     private Address address;
 
     @Embedded
