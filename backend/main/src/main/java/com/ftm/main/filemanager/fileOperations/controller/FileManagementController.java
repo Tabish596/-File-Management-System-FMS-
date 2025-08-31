@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 public class FileManagementController {
 
     @Autowired
-    FileService fileService;
+    private FileService fileService;
 
     @PostMapping("/initiate-upload")
     public CompletableFuture<ResponseEntity<FileResponse>> initiateUpload(@RequestBody FileRequest fileRequest){

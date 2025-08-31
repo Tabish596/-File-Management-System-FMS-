@@ -12,6 +12,7 @@ import com.ftm.main.filemanager.fileOperations.repository.ChunkRepository;
 import com.ftm.main.filemanager.fileOperations.repository.FileRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -21,9 +22,9 @@ import java.util.Optional;
 @Service
 public class FileService {
 
-    FileRepository fileRepository;
-    ChunkRepository chunkRepository;
-    S3PresignedUrlService s3Service;
+    private final FileRepository fileRepository;
+    private final ChunkRepository chunkRepository;
+    private final S3PresignedUrlService s3Service;
 
     @Value("${aws.s3.basePath}")
     private String basePath;
@@ -31,7 +32,7 @@ public class FileService {
     @Value("${aws.s3.chunk.duration}")
     private Long duration;
 
-    FileService(FileRepository fileRepository,ChunkRepository chunkRepository,S3PresignedUrlService s3Service){
+    public FileService(FileRepository fileRepository,ChunkRepository chunkRepository,S3PresignedUrlService s3Service){
         this.fileRepository=fileRepository;
         this.chunkRepository=chunkRepository;
         this.s3Service=s3Service;
