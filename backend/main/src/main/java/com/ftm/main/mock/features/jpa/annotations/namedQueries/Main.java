@@ -10,13 +10,13 @@ import java.util.List;
 @Service
 public class Main {
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    public void getEmployees(){
-        List<Employee> employees = entityManager
-                .createNamedQuery("Employee.findByDepartment", Employee.class)
-                .setParameter("dept","IT")
-                .getResultList();
-    }
+//    @PersistenceContext
+//    private EntityManager entityManager;
+//
+//    public void getEmployees(){
+//        List<Employee> employees = entityManager
+//                .createNamedQuery("Employee.findByDepartment", Employee.class)
+//                .setParameter("dept","IT")
+//                .getResultList();
+//    }
 }
