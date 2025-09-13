@@ -22,12 +22,12 @@ public class FileManagementController {
 
     @PostMapping("/initiate-upload")
     public CompletableFuture<ResponseEntity<FileResponse>> initiateUpload(@RequestBody FileRequest fileRequest){
-        return CompletableFuture.supplyAsync(()->ResponseEntity.status(201).body(fileService.getPendingChunks(fileRequest)));
+        return CompletableFuture.supplyAsync(()->ResponseEntity.status(201).body(fileService.pendingChunks(fileRequest)));
     }
 
     @PostMapping("/markFile")
     public CompletableFuture<ResponseEntity<ChunkStatusResponse>> markChunkCompleted(@RequestBody ChunkRequest chunkRequest){
-        return CompletableFuture.supplyAsync(() -> ResponseEntity.status(200).body(fileService.markChunkCompleted(chunkRequest)));
+        return CompletableFuture.supplyAsync(() -> ResponseEntity.status(200).body(fileService.chunkCompleted(chunkRequest)));
     }
 
     @ExceptionHandler(IllegalStateException.class)

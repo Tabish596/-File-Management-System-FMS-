@@ -38,7 +38,7 @@ public class FileService {
         this.s3Service=s3Service;
     }
 
-    public FileResponse getPendingChunks(FileRequest fileRequest){
+    public FileResponse pendingChunks(FileRequest fileRequest){
         Optional<File> file = fileRepository.findByOwnerIdAndName(fileRequest.getOwnerId(),fileRequest.getFileName());
         if(file.isEmpty()){
             File newFile = File.builder()
@@ -78,7 +78,7 @@ public class FileService {
         throw new IllegalStateException("File upload already completed or invalid state: " + currentFile.getStatus());
     }
 
-    public ChunkStatusResponse markChunkCompleted(ChunkRequest chunkRequest){
+    public ChunkStatusResponse chunkCompleted(ChunkRequest chunkRequest){
         Optional<Chunk> chunkOptional = chunkRepository.findByFileIdAndIndex(chunkRequest.getFileId(),chunkRequest.getIndex());
         if(chunkOptional.isPresent()){
             Chunk chunk = chunkOptional.get();
